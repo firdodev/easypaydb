@@ -1,0 +1,115 @@
+﻿@model EasyPayDatabase.Models.LoginTable
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+        #login-div {
+            width: 300px;
+            padding: 40px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background: #ef8333;
+            text-align: center;
+            border-radius:15%;
+            color:white;
+        }
+        .header-info {
+            color: white;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .field-validation-error {
+            color: red;
+        }
+        #Username , #Password{
+            border: 0;
+            background: none;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid white;
+            padding: 14px 10px;
+            width: 200px;
+            outline: none;
+            color: white;
+            border-radius: 24px;
+            transition: 0.25s;
+        }
+        .login-btn {
+            border: 0;
+            background: none;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid white;
+            padding: 14px 40px;
+            outline: none;
+            color: white;
+            border-radius: 24px;
+            transition: 0.25s;
+            cursor: pointer;
+        }
+        .login-btn:hover{
+            color:black;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="login-div">
+        <center>
+            @using (Html.BeginForm("Autherize", "Login", FormMethod.Post))
+            {
+                <h1 style="font-size:40px" class="header-info">EasyPay</h1>
+                <h1 style="font-size:30px" class="header-info">LOGIN</h1>
+                <table>
+                    <tr>
+                        <td>
+                            @Html.EditorFor(model => model.Username, new { htmlAttributes = new { placeholder = "Username" } })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>@Html.ValidationMessageFor(model => model.Username)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.EditorFor(model => model.Password, new { htmlAttributes = new { placeholder = "Password" } })</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>@Html.ValidationMessageFor(model => model.Password)</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="field-validation-error">@Html.DisplayFor(model => model.LoginErrorMessage)</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" name="name" value="Login" class="login-btn" />
+                        </td>
+                    </tr>
+                </table>
+            }
+        </center>
+    </div>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>
