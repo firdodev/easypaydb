@@ -13,10 +13,10 @@ namespace EasyPayDatabase.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class LoginDatabaseEntities : DbContext
+    public partial class LoginDatabaseEntitie : DbContext
     {
-        public LoginDatabaseEntities()
-            : base("name=LoginDatabaseEntities")
+        public LoginDatabaseEntitie()
+            : base("name=LoginDatabaseEntitie")
         {
         }
     

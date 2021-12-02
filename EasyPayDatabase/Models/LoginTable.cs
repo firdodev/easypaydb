@@ -17,12 +17,12 @@ namespace EasyPayDatabase.Models
     public partial class LoginTable
     {
         public int UserId { get; set; }
-        [Required(ErrorMessage ="This is field is required")]
+        [Required(ErrorMessage = "This field is required.")]
         public string Username { get; set; }
         [DataType(DataType.Password)]
-        [Required(ErrorMessage = "This is field is required")]
+        [Required(ErrorMessage = "This field is required.")]
         public string Password { get; set; }
-
+        public string Usertype { get; set; }
         public string LoginErrorMessage { get; set; }
     }
 }

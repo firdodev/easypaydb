@@ -5,11 +5,12 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace EasyPayDatabase.Controllers
+namespace MVCLogin.Controllers
 {
     public class LoginController : Controller
     {
-        // GET: Login
+        //
+        // GET: /Login/
         public ActionResult Index()
         {
             return View();
@@ -18,18 +19,19 @@ namespace EasyPayDatabase.Controllers
         [HttpPost]
         public ActionResult Autherize(EasyPayDatabase.Models.LoginTable userModel)
         {
-            using(LoginDatabaseEntities db = new LoginDatabaseEntities())
+            using (LoginDatabaseEntitie db = new LoginDatabaseEntitie())
             {
                 var userDetails = db.LoginTables.Where(x => x.Username == userModel.Username && x.Password == userModel.Password).FirstOrDefault();
-                if(userDetails == null)
+                if (userDetails == null)
                 {
                     userModel.LoginErrorMessage = "Wrong username or password.";
                     return View("Index", userModel);
                 }
                 else
                 {
-                    Session["userID"] = userDetails.UserId;
+                    Session["userId"] = userDetails.UserId;
                     Session["username"] = userDetails.Username;
+                    Session["userType"] = userDetails.Usertype;
                     return RedirectToAction("Index", "Home");
                 }
             }
@@ -37,8 +39,7 @@ namespace EasyPayDatabase.Controllers
 
         public ActionResult LogOut()
         {
-
-            int userId = (int)Session["userId"];
+            int userId = (int)Session["userID"];
             Session.Abandon();
             return RedirectToAction("Index", "Login");
         }

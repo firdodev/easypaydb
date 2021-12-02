@@ -74,3 +74,5 @@ D:\Intership EasyPay\Works\EasyPayDatabase\EasyPayDatabase\obj\Debug\EasyPayData
 D:\Intership EasyPay\Works\EasyPayDatabase\EasyPayDatabase\obj\Debug\EasyPayDatabase.csproj.CopyComplete
 D:\Intership EasyPay\Works\EasyPayDatabase\EasyPayDatabase\obj\Debug\EasyPayDatabase.dll
 D:\Intership EasyPay\Works\EasyPayDatabase\EasyPayDatabase\obj\Debug\EasyPayDatabase.pdb
+D:\Intership EasyPay\Works\EasyPayDatabase\EasyPayDatabase\obj\Debug\EasyPayDatabase.Properties.Resources.resources
+D:\Intership EasyPay\Works\EasyPayDatabase\EasyPayDatabase\obj\Debug\EasyPayDatabase.csproj.GenerateResource.cache
